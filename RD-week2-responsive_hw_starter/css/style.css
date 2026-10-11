@@ -43,7 +43,24 @@ div{
   padding: 2px;
 }
 
+/* Tablet view */
+@media screen and (min-width: 772px) {
+    div {
+        display: inline-block;
+        width: 45%;
+    }
 
+    div img {
+        max-height: 30vh;
+    }
+}
+
+/* Large screen view */
+@media screen and (min-width: 998px) {
+    div {
+        width: 30%;
+    }
+}
 
 
 
