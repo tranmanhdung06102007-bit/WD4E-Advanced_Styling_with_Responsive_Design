@@ -1,143 +1,129 @@
+
+/* General styles - Mobile first */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
+    margin: 10px;
+    padding: 10px;
     background-color: #dedede;
+    color: #000;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 h1 {
-    text-align: center;
-    font-family:Arial, sans-serif;
     font-size: 32px;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
 }
 
 a {
     color: #000;
-    text-decoration: none;
-    font-family:Arial, sans-serif;
+    font-family: Arial, sans-serif;
 }
 
-p {
-   font-size: 25px;
-   font-family:Arial, sans-serif;
+a:focus-visible {
+    outline: 3px solid #000;
+    outline-offset: 3px;
 }
 
-img{
-  width:100%;
-}
-
-
-p{
-  text-align:center;
-}
-
-div img{
-    width:150px;
-    height: 150px;
-    display:block;
-    margin:auto;
-}
-
-div{
-  display: inline-block;
-  width: 24%;
-  margin: 5px;
-  padding: 2px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-main {
-    border: 5px #000 solid;
-    margin: 10px;
-}
- */
-/* 
-
-.container {
+/* Mobile: one-column grid */
+.grid {
     display: grid;
     grid-template-columns: 1fr;
-    justify-items: center;
+    gap: 10px;
 }
- */
-/* img{
-    width: 200px;
-    height: 200px;
-    padding: 5px;
-} */
 
-/* .child {
-    position: relative;
-    display: inline-block;
-    border: 5px black solid;
-    margin: 5px;
-    border-radius: 5px;
-} */
-
-/* 
-
-.label {
-    display: none;
-    position: absolute;
-    top: 40%;
-    left: 40%;
-} */
-/* 
-.button {
-    display: inline-block;
-    border: 2px solid #000;
-    padding: 5px;
-    border-radius: 25px;
+.grid > figure {
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #333;
 }
- */
-/* 
-.button:hover {
-    background-color:#fff;
-} */
 
-/* 
+.grid > figure img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+figcaption {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
 footer {
     display: flex;
     justify-content: center;
-} */
+    margin: 20px 0;
+}
 
-/* 
-header {
-    border-radius: 5px;
-    border: 5px #000 solid;
-    margin: 10px;
-} */
+/* Tablet: 772px and wider */
+@media screen and (min-width: 772px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-/* 
-.label {
-    display: none;
-    position: absolute;
-    top: 40%;
-    left: 40%;
-} */
-/* 
-.child:hover .label {
-    display: block;
-} */
+    .grid > figure:last-child {
+        grid-column: 1 / span 2;
+    }
+
+    .grid > figure img {
+        border-radius: 50%;
+    }
+}
+
+/* Large screens: 992px and wider */
+@media screen and (min-width: 992px) {
+    .grid > figure:last-child {
+        grid-column: auto;
+    }
+
+    .grid > figure:nth-child(3n) {
+        grid-column: span 2;
+    }
+
+    .grid > figure img {
+        border-radius: 0;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Dark color scheme */
+@media (prefers-color-scheme: dark) {
+    .grid > figure {
+        background-color: #222;
+        color: #ffff99;
+        border-color: #000;
+    }
+
+    .grid > figure a {
+        color: #ffff99;
+    }
+}
